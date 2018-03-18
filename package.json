@@ -1,0 +1,26 @@
+{
+  "name": "bitwallet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ./index.js",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/bitcoin.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . bitwallet --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/bitcoin.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Bitwallet\"",
+    "package-linux": "electron-packager . bitwallet --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds"
+  },
+  "author": "Daniel Rosselli",
+  "license": "ISC",
+  "description": "Bitcoin Wallet",
+  "devDependencies": {
+    "electron": "~1.8.2",
+    "electron-packager": "^11.1.0"
+  },
+  "dependencies": {
+    "bitcoinjs-lib": "^3.3.2",
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.1",
+    "qrcode-svg": "^1.0.0",
+    "request": "^2.85.0"
+  }
+}

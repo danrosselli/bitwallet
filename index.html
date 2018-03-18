@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#">
+
+    <title>BitWallet</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+	<div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-black border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto">BitWallet (testnet)</h5>
+      <nav class="nav my-2 my-md-0 mr-md-3">
+			<a class="p-2 text-dark" id="menu_overview" href="#">Overview</a>
+			<a class="p-2 text-dark" id="menu_send" href="#">Send</a>
+			<a class="p-2 text-dark" id="menu_receive" href="#">Receive</a>
+			<a class="p-2 text-dark" id="menu_transactions" href="#">Transactions</a>
+			<a class="p-2 text-dark" id="menu_log" href="#">Log</a>
+      </nav>
+    </div>
+
+    <main role="main" class="container-fluid">
+		<div id="page_overview">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="jumbotron">
+						<h3><small class="text-muted">Balance</small><br><span id="balance"></span></h3>
+						<h3><small class="text-muted">Unconfirmed</small><br><span id="unconfirmed"></span></h3>
+						<hr>
+						<h5><small class="text-muted">Number of transactions: </small><span id="number_transactions"></span></h5>
+						<hr>
+						<button id="refresh" type="button" class="btn btn-primary">Refresh</button>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<h5 class="text-left pb-2">Current private key</h5>
+					<p id="current_privatekey"></p>
+					<hr>
+					<h5 class="text-left pb-2">Change private key</h5>
+					<form class="form-inline">
+						<select class="form-control" id="privatekey"></select>
+						<button id="changePrivateKey" type="button" class="btn btn-primary ml-2">Change</button>
+					</form>
+					<hr>
+					<h5 class="text-left pb-2">Import private key</h5>
+					<form class="form-inline">
+						<input type="text" class="form-control" id="input_importkey" aria-describedby="input_importkeyHelp" placeholder="Private key" style="width: 540px;">
+						<button id="import" type="button" class="btn btn-primary ml-2">Import</button>
+					</form>
+					
+					
+					<hr>
+					<button id="generate" type="button" class="btn btn-primary">Generate new private key</button>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div id="page_send">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-left pb-2">Send coins</h3>
+					<form>
+						<div class="form-group">
+							<label for="sendto">Send to</label>
+							<input type="text" class="form-control" id="sendto" aria-describedby="sendtoHelp" placeholder="Bitcoin address" value="">
+							<small id="sendtoHelp" class="form-text text-muted">Put the destination bitcoin address</small>
+						</div>
+						<div class="form-group">
+							<label for="sendamount">Amount</label>
+							<input type="number" class="form-control" id="sendamount" aria-describedby="sendamountHelp" placeholder="Amount" value="">
+							<small id="sendamountHelp" class="form-text text-muted">Put the amount to transfer</small>
+						</div>
+						<div class="form-group">
+							<label for="sendfee">Fee</label>
+							<input type="number" class="form-control" id="sendfee" aria-describedby="sendfeeHelp" placeholder="Fee" value="0.0001">
+							<small id="sendfeeHelp" class="form-text text-muted">Fee to miners</small>
+						</div>
+						<button id="sendBTC" type="button" class="btn btn-primary">Send</button>
+					</form>
+				</div>
+				
+			</div>
+			
+		</div>
+		<div id="page_receive">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-left pb-2">Receive coins</h3>
+					<form>
+						<div class="form-group">
+							<label for="public_key">Public Address</label>
+							<input type="text" class="form-control" id="public_key" aria-describedby="public_keyHelp" disabled="disabled">
+							<small id="public_keyHelp" class="form-text text-muted">Share this address to receive payments</small>
+						</div>
+						
+					</form>
+					<div id="qrcode"></div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		<div id="page_transactions">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-left pb-2">Transactions</h3>
+					<table id="table_transactions" class="table table-hover table-sm">
+						<thead>
+							<tr>
+								<th scope="col">Date</th>
+								<th scope="col">Tx</th>
+								<th scope="col">Amount</th>
+								<th scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						</tbody>
+					</table>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		<div id="page_log">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-left pb-2">Log</h3>
+					<form>
+						<div class="form-group">
+							<label for="log">Output</label>
+							<textarea class="form-control" id="log" rows="14"></textarea>
+							
+						</div>
+						
+					</form>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+    </main>
+	
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, Bootstrap JS -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./app.js"></script>
+
+   
+  </body>
+</html>

@@ -1,6 +1,8 @@
 # bitwallet
 Bitcoin Wallet (Testnet)
 
+![Screenshot](https://github.com/soware/bitwallet/blob/master/assets/icons/png/512x512.png)
+
 Bitwallet is a bitcoin wallet application. The purpose is demonstrate how work the bitcoin transactions. All transactions are made in Testnet. It is a lightweight wallet and don't need to download the blockchain. 
 I don't use frameworks like Express, just bootstrap and jquery. And electron to generate executables application.
 I made it most simple and compreensive possible. Eventually I will made improvements in code, and implement new features. 

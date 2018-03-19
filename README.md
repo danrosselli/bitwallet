@@ -8,20 +8,27 @@ I don't use frameworks like Express, just bootstrap and jquery. And electron to 
 I made it most simple and compreensive possible. Eventually I will made improvements in code, and implement new features. 
 
 ###### Install dependencies:
->npm install
-
+```
+npm install
+```
 ###### Start application:
->npm start
-
+```
+npm start
+```
 ###### Compile to Linux:
->npm run package-linux
+```
+npm run package-linux
+```
 
 ###### Compile to Windows:
->npm run package-win
+```
+npm run package-win
+```
 
 ###### Compile to MAC:
->npm run package-mac
-
+```
+npm run package-mac
+```
 
 #### I hope you enjoy!
 

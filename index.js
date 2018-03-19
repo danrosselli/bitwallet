@@ -18,10 +18,10 @@ function createWindow () {
      })
   
 	// This 'closed' handler to exit process
-    win.on('closed', function () {
-        win = null;
-        process.exit(0);
-    });
+	win.on('closed', function () {
+		win = null;
+		process.exit(0);
+	});
     
     //var menu = Menu.buildFromTemplate(menuTemplate);
     //win.setMenu(menu);

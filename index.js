@@ -17,12 +17,22 @@ function createWindow () {
 		icon: path.join(__dirname, 'assets/icons/png/512x512.png')
      })
   
-	// e carrega index.html do app.
+	// This 'closed' handler to exit process
+    win.on('closed', function () {
+        win = null;
+        process.exit(0);
+    });
+    
+    //var menu = Menu.buildFromTemplate(menuTemplate);
+    //win.setMenu(menu);
+    
+	// and load index.html do app.
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, 'index.html'),
 		protocol: 'file:',
 		slashes: true
 	}))
+	
 }
   
 app.on('ready', createWindow);

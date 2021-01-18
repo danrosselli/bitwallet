@@ -8,9 +8,7 @@ var QRCode = require('qrcode-svg');
 // get blockchain API from https://chain.so/
 var url_bitcoin = 'https://chain.so/api/v2/';
 
-
 main();
-
 
 /*
 $('document').ready(function(){

@@ -13,7 +13,7 @@
   "description": "Bitcoin Wallet",
   "devDependencies": {
     "electron": "~1.8.2",
-    "electron-packager": "^11.1.0"
+    "electron-packager": "^16.0.0"
   },
   "dependencies": {
     "bitcoinjs-lib": "^3.3.2",
